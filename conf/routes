@@ -1,1 +1,2 @@
 GET / controllers.FormController.get
+POST  / controllers.FormController.post

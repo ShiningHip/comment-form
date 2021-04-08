@@ -8,10 +8,11 @@ idePackagePrefix := Some("hip.shining.form")
 
 libraryDependencies ++= Seq(
   guice,
-  "org.scalatestplus.play" %% "scalatestplus-play" % "5.1.0" % "test",
-  "org.scalatest" %% "scalatest" % "3.2.5" % "test",
-  "org.scalamock" %% "scalamock-scalatest-support" % "3.6.0" % "test",
-  "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2",
+  "org.scalatestplus.play"     %% "scalatestplus-play"          % "5.1.0" % "test",
+  "org.scalatest"              %% "scalatest"                   % "3.2.5" % "test",
+  "org.scalamock"              %% "scalamock-scalatest-support" % "3.6.0" % "test",
+  "com.typesafe.scala-logging" %% "scala-logging"               % "3.9.2",
+  "org.scalaz"                 %% "scalaz-core"                 % "7.3.3"
 )
 
 lazy val assemblyCommonSettings = Seq(
@@ -19,10 +20,10 @@ lazy val assemblyCommonSettings = Seq(
   organization := "hip.shining",
   scalaVersion := "2.12.13",
   assemblyMergeStrategy in assembly := {
-    case PathList("javax", "servlet", xs @ _*) => MergeStrategy.first
+    case PathList("javax", "servlet", xs @ _*)               => MergeStrategy.first
     case PathList(ps @ _*) if ps.last endsWith ".properties" => MergeStrategy.first
-    case PathList(ps @ _*) if ps.last endsWith ".class" => MergeStrategy.first
-    case PathList(ps @ _*) if ps.last endsWith ".conf" => MergeStrategy.concat
+    case PathList(ps @ _*) if ps.last endsWith ".class"      => MergeStrategy.first
+    case PathList(ps @ _*) if ps.last endsWith ".conf"       => MergeStrategy.concat
     case x =>
       val oldStrategy = (assemblyMergeStrategy in assembly).value
       oldStrategy(x)
