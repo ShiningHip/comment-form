@@ -1,3 +1,4 @@
+package hip.shining.form
 package controllers
 
 import models.FormRequest
@@ -10,9 +11,9 @@ import javax.inject.{Inject, Singleton}
 class FormController @Inject() (
   cc: ControllerComponents
 ) extends AbstractController(cc) {
-  def get: Action[AnyContent] =
+  def get(userId: String): Action[AnyContent] =
     Action { implicit request: Request[AnyContent] =>
-      Ok("healthy")
+      Ok(userId)
     }
 
   def post: Action[AnyContent] =
